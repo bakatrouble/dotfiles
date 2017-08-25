@@ -59,7 +59,8 @@ song() {
 		else
 			icon="\ue09b"
 		fi
-		song=`echo $st | sed 's/^\(.*\)\s\[\(.*\)\].*$/\1/g'`
+		#song=`echo $st | sed 's/^\(.*\)\s\[\(.*\)\].*$/\1/g'`
+		song=`mpc current`
 	fi
 	echo $icon$song
 }
