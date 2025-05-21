@@ -1,0 +1,9 @@
+# vim: set filetype=fish :
+
+pyenv init - fish | source
+
+bind down down-or-prefix-search
+bind up up-or-prefix-search
+abbr --add G --position anywhere '| grep'
+bind escape,escape 'fish_commandline_prepend sudo'
+
