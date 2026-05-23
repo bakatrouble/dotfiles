@@ -7,3 +7,4 @@ bind up up-or-prefix-search
 abbr --add G --position anywhere '| grep'
 bind escape,escape 'fish_commandline_prepend sudo'
 
+# set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
