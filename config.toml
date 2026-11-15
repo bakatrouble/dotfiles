@@ -4,3 +4,5 @@
 "~/.config/fish" = { source = "fish/.config/fish" }
 "~/.config/nvim" = { source = "nvim/.config/nvim" }
 "~/.fishrc" = { source = "shell/.fishrc" }
+"~/.ssh/config" = { source = "ssh/config" }
+"~/.ssh/hosts.d" = { source = "ssh/hosts.d" }

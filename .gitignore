@@ -8,7 +8,6 @@ fish/.config/fish/functions/*
 fish/.config/fish/conf.d/*
 fish/.config/fish/completions/*
 fish/.config/fish/themes/*
-!fish/.config/fish/themes/desktop.fish
 
 # Our functions: everything under functions/custom is ours.
 !fish/.config/fish/functions/custom/
@@ -17,10 +16,20 @@ fish/.config/fish/themes/*
 
 !fish/.config/fish/conf.d/00-functions.fish
 !fish/.config/fish/conf.d/10-env.fish
-!fish/.config/fish/conf.d/20-theme.fish
+!fish/.config/fish/conf.d/30-tide.fish
 !fish/.config/fish/conf.d/unity-cli.fish
 
 !fish/.config/fish/completions/copilot.fish
 !fish/.config/fish/completions/fisher.fish
 !fish/.config/fish/completions/uv.fish
 !fish/.config/fish/completions/uvx.fish
+
+# Machine-local mise config (desktop-only services, origins); never shared.
+*.local.toml
+
+# Personal git identity; not published.
+/git/
+
+# Private SSH host blocks: linked to ~/.ssh/hosts.d, never published.
+ssh/hosts.d/*
+!.gitkeep

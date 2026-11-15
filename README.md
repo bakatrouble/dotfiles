@@ -32,3 +32,10 @@ Install or restore them with `fisher update`. `fisher` itself is kept in
 ## Runtime state
 
 `fish_variables*` and `secrets.fish` are written locally and git-ignored.
+
+## Startup check
+
+Each interactive fish shell fetches this repo (5 s timeout), offers to pull
+updates with a `[Y/n]` prompt, and lists uncommitted changes and unpushed
+commits. The check is `functions/custom/dotfiles_check.fish`, called from
+`config.fish`.

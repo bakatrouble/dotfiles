@@ -1,0 +1,8 @@
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 2
+  AddKeysToAgent yes
+
+
+# Host blocks live in hosts.d/ (linked from this repo). Included files are read in alphabetical order.
+Include hosts.d/*.conf
