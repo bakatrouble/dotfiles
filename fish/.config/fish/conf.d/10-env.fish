@@ -6,6 +6,7 @@ set -gx SYSTEMD_EDITOR nvim
 set -gx ANDROID_HOME $HOME/Android/Sdk
 set -gx PYENV_ROOT $HOME/.pyenv
 set -gx VIRTUAL_ENV_DISABLE_PROMPT true
+set -gx MISE_CONFIG_DIR $HOME/.dotfiles
 set -gx PNPM_HOME "/home/user/.local/share/pnpm"
 
 # PATH entries, formerly fish_user_paths. Prepended in reverse so the final

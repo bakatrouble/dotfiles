@@ -1,0 +1,5 @@
+# Dotfiles deployed with `mise dot apply` (run from this directory).
+[dotfiles]
+"~/.config/fish" = { source = "fish/.config/fish" }
+"~/.config/nvim" = { source = "nvim/.config/nvim" }
+"~/.fishrc" = { source = "shell/.fishrc" }
