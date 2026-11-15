@@ -89,14 +89,23 @@ for target in $targets
 end
 
 if test -d $MISE_CONFIG_DIR/.git
-    # Already adopted: apply the existing checkout.
+    # Existing checkout: fast-forward it to the remote, then apply it.
+    if test -z "$dry"
+        git -C $MISE_CONFIG_DIR pull --ff-only --quiet </dev/null >/dev/null 2>&1; or echo "bootstrap: could not fast-forward $MISE_CONFIG_DIR; applying what is checked out." >&2
+    end
     mise bootstrap $dry; or exit 1
 else
     mise bootstrap --adopt bakatrouble/dotfiles $dry; or exit 1
 end
 
 if test -z "$dry"
-    fish -l -c plugins_sync; or exit 1
+    # Load the functions from the checkout by path, not through fish's function path.
+    set -l custom $MISE_CONFIG_DIR/fish/.config/fish/functions/custom
+    if not test -f $custom/plugins_sync.fish
+        echo "bootstrap: $custom/plugins_sync.fish is missing; update $MISE_CONFIG_DIR and run this again." >&2
+        exit 1
+    end
+    fish -l -c "source $custom/is_desktop.fish; source $custom/plugins_sync.fish; plugins_sync" </dev/null; or exit 1
 end
 
 echo "bootstrap: done. Open a new fish shell to pick up the configuration."
