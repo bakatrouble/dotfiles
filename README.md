@@ -12,9 +12,10 @@ target in `$HOME` to a source here:
 
 ## Install on a new machine
 
-Needs fish, git and curl. The one-liner downloads `bootstrap.fish` and runs it:
+Needs fish, git and curl. The one-liner downloads the `install.fish` stub, which
+updates or clones `~/.dotfiles` and then runs `bootstrap.fish`:
 
-    curl -fsSL https://tinyurl.com/bakatrouble-dotfiles | fish
+    curl -fsS https://dotfiles.bakatrouble.me | fish
 
 The script installs mise if it is missing, then adopts this repository into
 `~/.dotfiles` and applies it. Run it from a checkout with `--dry-run` to preview

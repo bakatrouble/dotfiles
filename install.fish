@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 # Stub for the one-liner:
 #
-#   curl -fsSL https://is.gd/bakatrouble_dotfiles | fish
+#   curl -fsS https://dotfiles.bakatrouble.me | fish
 #
 # Short links and raw.githubusercontent.com cache this file for minutes, so it
 # stays small and changes rarely. The real logic is bootstrap.fish in the repo,
