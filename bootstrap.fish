@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 # Bootstrap these dotfiles on a new machine.
 #
-#   curl -fsSL https://is.gd/bakatrouble_dotfiles | fish
+#   curl -fsSL https://is.gd/bakatrouble_dotfiles | fish   (install.fish, the stub that runs this)
 #
 # Needs fish, git and curl. Installs mise with `curl -fsSL https://mise.run | sh`
 # when it is missing. Existing files that the dotfiles would replace are listed,
