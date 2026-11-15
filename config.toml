@@ -1,4 +1,5 @@
-# Dotfiles deployed with `mise dot apply` (run from this directory).
+# mise global config for this repository (MISE_CONFIG_DIR=~/.dotfiles).
+# Sources are relative to this directory.
 [dotfiles]
 "~/.config/fish" = { source = "fish/.config/fish" }
 "~/.config/nvim" = { source = "nvim/.config/nvim" }

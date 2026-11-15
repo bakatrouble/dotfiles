@@ -1,24 +1,39 @@
 #!/usr/bin/env fish
 # Bootstrap these dotfiles on a new machine.
 #
-#   git clone git@github.com:bakatrouble/dotfiles.git ~/.dotfiles; and fish ~/.dotfiles/bootstrap.fish
+#   fish -c 'curl -fsSL https://mise.run | sh'   # only if mise is missing
+#   env MISE_CONFIG_DIR=~/.dotfiles mise bootstrap --adopt bakatrouble/dotfiles
 #
-# Needs fish, git and mise (https://mise.jdx.dev) on PATH. With --dry-run, only
-# the mise preview runs and no plugins are installed.
+# This script runs the same thing. It needs fish, git and curl. It installs mise
+# with `curl -fsSL https://mise.run | sh` when mise is missing. With --dry-run,
+# only the preview runs and no plugins are installed.
 
-set -l repo (realpath (dirname (status filename)))
+set -gx MISE_CONFIG_DIR $HOME/.dotfiles
 
 if not command -q mise
-    echo "bootstrap: mise is not installed. Install it, then run this again." >&2
-    exit 1
+    echo "bootstrap: mise not found, installing it to ~/.local/bin"
+    curl -fsSL https://mise.run | env MISE_INSTALL_HELP=0 sh
+    set -l rc $pipestatus
+    if test $rc[1] -ne 0; or test $rc[2] -ne 0
+        echo "bootstrap: mise install failed" >&2
+        exit 1
+    end
+    fish_add_path --global $HOME/.local/bin
+    if not command -q mise
+        echo "bootstrap: mise is still not on PATH after install" >&2
+        exit 1
+    end
 end
 
 set -l dry
 contains -- --dry-run $argv; and set dry --dry-run
 
-mise -C $repo trust; or exit 1
-mise -C $repo dot apply $dry; or exit 1
-mise -C $repo dot status
+if test -d $MISE_CONFIG_DIR/.git
+    # Already adopted: apply the existing checkout.
+    mise bootstrap $dry; or exit 1
+else
+    mise bootstrap --adopt bakatrouble/dotfiles $dry; or exit 1
+end
 
 if test -z "$dry"
     fish -l -c plugins_sync; or exit 1
