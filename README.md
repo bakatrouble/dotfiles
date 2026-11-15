@@ -12,12 +12,17 @@ target in `$HOME` to a source here:
 
 ## Install on a new machine
 
-With mise installed:
+Needs fish, git and curl. The one-liner downloads `bootstrap.fish` and runs it:
+
+    curl -fsSL https://tinyurl.com/bakatrouble-dotfiles | fish
+
+The script installs mise if it is missing, then adopts this repository into
+`~/.dotfiles` and applies it. Run it from a checkout with `--dry-run` to preview
+the mise step only.
+
+Without the one-liner, with mise installed:
 
     env MISE_CONFIG_DIR=~/.dotfiles mise bootstrap --adopt bakatrouble/dotfiles
-
-Or run `fish ~/.dotfiles/bootstrap.fish` after cloning. The script installs
-mise if it is missing, and then adopts or applies this repository.
 
 Check the result with `mise dot status`. Each target is a symlink into the
 repo.
