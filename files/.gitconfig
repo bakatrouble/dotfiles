@@ -1,0 +1,16 @@
+[user]
+	name = bakatrouble
+	email = bakatrouble@gmail.com
+[init]
+	defaultBranch = master
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	excludesFile = /home/user/.config/git/ignore
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
+[url "ssh://git@git.home.bakatrouble.me/"]
+	insteadOf = https://git.home.bakatrouble.me/
+[url "git@github.com:"]
+	insteadOf = https://github.com/

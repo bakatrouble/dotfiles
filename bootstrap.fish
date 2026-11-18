@@ -25,15 +25,15 @@ function __bootstrap_source_for -a target
     set -l repo $MISE_CONFIG_DIR
     switch $target
         case $HOME/.config/fish
-            echo $repo/fish/.config/fish
+            echo $repo/files/config/fish
         case $HOME/.config/nvim
-            echo $repo/nvim/.config/nvim
+            echo $repo/files/config/nvim
         case $HOME/.fishrc
-            echo $repo/shell/.fishrc
+            echo $repo/files/.fishrc
         case $HOME/.ssh/config
-            echo $repo/ssh/config
+            echo $repo/files/ssh/config
         case $HOME/.ssh/hosts.d
-            echo $repo/ssh/hosts.d
+            echo $repo/files/ssh/hosts.d
     end
 end
 
@@ -129,7 +129,7 @@ end
 
 if test -z "$dry"
     # Load the functions from the checkout by path, not through fish's function path.
-    set -l custom $MISE_CONFIG_DIR/fish/.config/fish/functions/custom
+    set -l custom $MISE_CONFIG_DIR/files/config/fish/functions/custom
     if not test -f $custom/plugins_sync.fish
         echo "bootstrap: $custom/plugins_sync.fish is missing; update $MISE_CONFIG_DIR and run this again." >&2
         exit 1

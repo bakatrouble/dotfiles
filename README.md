@@ -4,11 +4,17 @@ This repository is the global [mise](https://mise.jdx.dev) config. Setting
 `MISE_CONFIG_DIR=~/.dotfiles` points mise at it. `config.toml` maps each
 target in `$HOME` to a source here:
 
-| Source                   | Target             |
-|--------------------------|--------------------|
-| `fish/.config/fish`      | `~/.config/fish`   |
-| `nvim/.config/nvim`      | `~/.config/nvim`   |
-| `shell/.fishrc`          | `~/.fishrc`        |
+| Source                  | Target              |
+|-------------------------|---------------------|
+| `files/config/fish`     | `~/.config/fish`    |
+| `files/config/nvim`     | `~/.config/nvim`    |
+| `files/config/git`      | `~/.config/git`     |
+| `files/.fishrc`         | `~/.fishrc`         |
+| `files/ssh/config`      | `~/.ssh/config`     |
+| `files/ssh/hosts.d`     | `~/.ssh/hosts.d`    |
+
+Everything under `files/` mirrors `$HOME`: `files/config/` is `~/.config`,
+`files/ssh/` is `~/.ssh`, and the rest sits at the root of `files/`.
 
 ## Install on a new machine
 
@@ -30,10 +36,10 @@ repo.
 
 ## Fish plugins
 
-Plugins are listed in `fish/.config/fish/fish_plugins` and are not vendored.
+Plugins are listed in `files/config/fish/fish_plugins` and are not vendored.
 Install or restore them with `fisher update`. `fisher` itself is kept in
 `functions/` as the bootstrap. Tide is desktop-only and is listed in
-`fish/.config/fish/fish_plugins_desktop`; `plugins_sync` installs it.
+`files/config/fish/fish_plugins_desktop`; `plugins_sync` installs it.
 
 ## Runtime state
 

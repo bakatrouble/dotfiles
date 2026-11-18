@@ -90,8 +90,8 @@ function dotfiles_check -d "Report dotfiles state"
         return
     end
 
-    set -l config_changes (git -C $repo status --porcelain -- fish/.config/fish/config.fish)
+    set -l config_changes (git -C $repo status --porcelain -- files/config/fish/config.fish)
     if test (count $config_changes) -gt 0
-        __dotfiles_print yellow '⚠ fish/.config/fish/config.fish has uncommitted changes'
+        __dotfiles_print yellow '⚠ files/config/fish/config.fish has uncommitted changes'
     end
 end

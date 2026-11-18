@@ -1,8 +1,10 @@
 # mise global config for this repository (MISE_CONFIG_DIR=~/.dotfiles).
-# Sources are relative to this directory.
+# Sources are relative to this directory; files/ mirrors $HOME.
 [dotfiles]
-"~/.config/fish" = { source = "fish/.config/fish" }
-"~/.config/nvim" = { source = "nvim/.config/nvim" }
-"~/.fishrc" = { source = "shell/.fishrc" }
-"~/.ssh/config" = { source = "ssh/config" }
-"~/.ssh/hosts.d" = { source = "ssh/hosts.d" }
+"~/.config/fish" = { source = "files/config/fish" }
+"~/.config/nvim" = { source = "files/config/nvim" }
+"~/.config/git" = { source = "files/config/git" }
+"~/.fishrc" = { source = "files/.fishrc" }
+"~/.ssh/config" = { source = "files/ssh/config" }
+"~/.ssh/hosts.d" = { source = "files/ssh/hosts.d" }
+"~/.gitconfig" = { source = "files/.gitconfig" }

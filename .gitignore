@@ -2,34 +2,29 @@
 **/fish_variables*
 *.bak
 
+
 # fisher plugins: everything directly in these directories is installed by plugins.
 # Our own files are whitelisted below.
-fish/.config/fish/functions/*
-fish/.config/fish/conf.d/*
-fish/.config/fish/completions/*
-fish/.config/fish/themes/*
+files/config/fish/functions/*
+files/config/fish/conf.d/*
+files/config/fish/completions/*
+files/config/fish/themes/*
 
 # Our functions: everything under functions/custom is ours.
-!fish/.config/fish/functions/custom/
+!files/config/fish/functions/custom/
 
-!fish/.config/fish/functions/fisher.fish
+!files/config/fish/functions/fisher.fish
 
-!fish/.config/fish/conf.d/00-functions.fish
-!fish/.config/fish/conf.d/10-env.fish
-!fish/.config/fish/conf.d/30-tide.fish
-!fish/.config/fish/conf.d/unity-cli.fish
+!files/config/fish/conf.d/00-functions.fish
+!files/config/fish/conf.d/10-env.fish
+!files/config/fish/conf.d/30-tide.fish
+!files/config/fish/conf.d/unity-cli.fish
 
-!fish/.config/fish/completions/copilot.fish
-!fish/.config/fish/completions/fisher.fish
-!fish/.config/fish/completions/uv.fish
-!fish/.config/fish/completions/uvx.fish
-
-# Machine-local mise config (desktop-only services, origins); never shared.
-*.local.toml
-
-# Personal git identity; not published.
-/git/
+!files/config/fish/completions/copilot.fish
+!files/config/fish/completions/fisher.fish
+!files/config/fish/completions/uv.fish
+!files/config/fish/completions/uvx.fish
 
 # Private SSH host blocks: linked to ~/.ssh/hosts.d, never published.
-ssh/hosts.d/*
-!.gitkeep
+files/ssh/hosts.d/*
+!files/ssh/hosts.d/.gitkeep
